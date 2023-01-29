@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="calculator">
+
+<div class="rangeSlide__container">
+  <div class="rangeSlide__storage">
+    <label for="storage" class="rangeSlide__label">
+      <p>Storage:</p>
+      <p><span class="rangeSlide__value-storage">0</span> GB</p>
+    </label>
+    <input
+      type="range"
+      id="storage"
+      class="storage"
+      name="storage"
+      min="0"
+      max="1000"
+      step="1"
+      value="0"
+      oninput="onInputRange(this.value, 'storage')"
+    />
+  </div>
+
+  <div class="rangeSlide__transfer">
+    <label for="transfer" class="rangeSlide__label">
+      <p>Transfer:</p>
+      <p><span class="rangeSlide__value-transfer">0</span> GB</p>
+    </label>
+    <input
+      type="range"
+      id="transfer"
+      class="transfer"
+      name="transfer"
+      min="0"
+      max="1000"
+      step="1"
+      value="0"
+      oninput="onInputRange(this.value, 'transfer')"
+    />
+  </div>
+</div>
+
+<div class="result__container">
+  <div class="backblaze provider">
+    <div class="label__container">
+      <p class="backblaze__label">backblaze</p>
+    </div>
+
+    <div class="progress__container">
+      <span class="backblaze__value progress" id="backblaze__value"></span>
+      <span class="backblaze__value-label">0$</span>
+    </div>
+
+
+  </div>
+  <!--________________________________________________________-->
+
+  <div class="bunny provider">
+    <div class="label__container">
+      <p class="bunny__label">bunny</p>
+      <fieldset class="bunny__fieldset radio__wrapper" onchange="displayResults()">
+        <div>
+          <input type="radio" id="hdd" name="bunny__radio" class="bunny__option" value="hdd" checked>
+          <label for="hdd">HDD</label>
+        </div>
+
+        <div>
+          <input type="radio" id="ssd" name="bunny__radio" class="bunny__option" value="ssd">
+          <label for="ssd">SSD</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="progress__container">
+      <span class="bunny__value progress" id="bunny__value"></span>
+      <span class="bunny__value-label">0$</span>
+    </div>
+
+  </div>
+  <!--________________________________________________________-->
+
+  <div class="scaleway provider">
+    <div class="label__container">
+      <p class="scaleway__label">scaleway</p>
+      <fieldset class="scaleway__fieldset radio__wrapper" onchange="displayResults()">
+        <div>
+          <input type="radio" id="multi" name="scaleway__radio" class="scaleway__option" value="multi" checked>
+          <label for="multi">Multi</label>
+        </div>
+
+        <div>
+          <input type="radio" id="single" name="scaleway__radio" class="scaleway__option" value="single">
+          <label for="single">Single</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="progress__container">
+      <span class="scaleway__value progress" id="scaleway__value"></span>
+      <span class="scaleway__value-label">0$</span>
+    </div>
+
+  </div>
+  <!--________________________________________________________-->
+
+  <div class="vultr provider">
+    <div class="label__container">
+      <p class="vultr__label">vultr</p>
+    </div>
+
+    <div class="progress__container">
+      <span class="vultr__value progress" id="vultr__value"></span>
+      <span class="vultr__value-label">0$</span>
+    </div>
+  </div>
+  <!--________________________________________________________-->
+
+</div>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
