@@ -1,3 +1,10 @@
+document.querySelector("#storage").addEventListener('input', (e) => {
+  onInputRange(e.target.value, 'storage')
+});
+document.querySelector("#transfer").addEventListener('input', (e) => {
+  onInputRange(e.target.value, 'transfer')
+});
+
 const showRangeSlideValue = (newValue, type) => {
   document.querySelector(".rangeSlide__value-" + type).innerHTML = newValue;
 }
@@ -67,13 +74,14 @@ function displayResults() {
   maxTotalPrice = Math.max(...prices)
   minTotalPrice = Math.min(...prices)
 
-  providers.map((provider, i) => {
+  providers.map((provider) => {
     const providerProgress = document.querySelector('.' + provider.providerName + '__value')
     const providerLabel = document.querySelector('.' + provider.providerName + '__value-label')
     const providerPrice = calculatePrice(provider)
     providerProgress.value = providerPrice / 100
     providerLabel.innerHTML = providerPrice + '$'
     providerProgress.style.width = maxTotalPrice !== 0 ? ((providerPrice * 100 / maxTotalPrice) + "%") : 0;
+    providerProgress.style.height = maxTotalPrice !== 0 ? ((providerPrice * 100 / maxTotalPrice) + "%") : 0;
     providerProgress.style.background = (providerPrice === minTotalPrice) ? provider.color : 'gray';
   })
 }
@@ -83,4 +91,5 @@ const onInputRange = (newValue, type) => {
   displayResults()
 }
 
+displayResults()
 
